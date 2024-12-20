@@ -1,5 +1,10 @@
+// Utilities
 import type { Metadata } from "next";
+
+// Fonts
 import { Roboto } from "next/font/google";
+
+// Styles
 import "./globals.css";
 
 const robotoFont = Roboto({

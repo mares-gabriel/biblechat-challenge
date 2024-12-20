@@ -1,3 +1,4 @@
+// Utilities
 import { useEffect, useState } from "react";
 
 export function useBookFetcher() {
@@ -6,6 +7,16 @@ export function useBookFetcher() {
    const [isLoading, setIsLoading] = useState<boolean>(true);
    const [currentPage, setCurrentPage] = useState<number>(1);
    const [totalPages, setTotalPages] = useState<number>(0);
+
+   const filters = [
+      "Fantasy",
+      "Science Fiction",
+      "Fiction",
+      "Historical",
+      "Horror",
+      "Adventure",
+      "Nature",
+   ];
 
    const switchPage = (number: number) => {
       setCurrentPage(number);
@@ -41,5 +52,6 @@ export function useBookFetcher() {
       currentPage,
       switchPage,
       totalPages,
+      filters,
    };
 }

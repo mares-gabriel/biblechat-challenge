@@ -1,5 +1,9 @@
 "use client";
+
+// Utilities
 import { useBookFetcher } from "@/hooks/useBookFetcher";
+
+// Components
 import Filters from "../filters";
 import Pagination from "../pagination";
 import Book from "../book/book";
@@ -14,17 +18,8 @@ export default function BooksFetcher() {
       switchPage,
       currentPage,
       totalPages,
+      filters,
    } = useBookFetcher();
-
-   const filters = [
-      "Fantasy",
-      "Science Fiction",
-      "Fiction",
-      "Historical",
-      "Horror",
-      "Adventure",
-      "Nature",
-   ];
 
    return (
       <div>
@@ -32,7 +27,7 @@ export default function BooksFetcher() {
          <div className="flex flex-row">
             <Filters filters={filters} changeFilter={changeFilter} />
             <div className="flex flex-col">
-               <p>{currentFilter}</p>
+               <p>{currentFilter && `Current filter: ${currentFilter}`}</p>
                <div className="flex flex-col">
                   {currentFilter ? (
                      isLoading ? (
